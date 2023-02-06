@@ -20,8 +20,10 @@ phases:
       - npm prune --production
     post_build:
       commands:
+        - mv appspec.yml dist/
+        - cd dist
         - echo Build completed on `date`  
 artifacts:
   type: zip
   files:
-    - "dist/**/*"
+    - "./**/*"
